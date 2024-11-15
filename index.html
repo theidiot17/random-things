@@ -62,7 +62,7 @@
             display: none;
             position: fixed;
             bottom: 10px;
-            left: 10px;
+            right: 10px;
             background-color: #4caf50;
             padding: 10px 20px;
             border-radius: 5px;
@@ -93,15 +93,15 @@
     </footer>
 
     <script>
-        // Show the secret translator when Shift is held
+        // Show the secret translator only when the right Shift key is held
         document.addEventListener("keydown", (e) => {
-            if (e.key === "Shift") {
+            if (e.key === "Shift" && e.code === "ShiftRight") {
                 document.getElementById("secretTranslator").style.display = "block";
             }
         });
 
         document.addEventListener("keyup", (e) => {
-            if (e.key === "Shift") {
+            if (e.key === "Shift" && e.code === "ShiftRight") {
                 document.getElementById("secretTranslator").style.display = "none";
             }
         });
