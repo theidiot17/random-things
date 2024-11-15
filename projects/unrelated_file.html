@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emoji Translator</title>
+    <title>Translator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,13 +37,27 @@
             display: inline-block;
             max-width: 90%;
         }
+        #backButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        #backButton:hover {
+            background-color: #6efc75;
+        }
     </style>
 </head>
 <body>
     <h1>Emoji Translator</h1>
-    <p>Type text below to see it translated into emojis live!</p>
     <textarea id="inputText" placeholder="Type here..."></textarea>
     <div id="output"></div>
+    <button id="backButton" onclick="location.href='../index.html'">🔙 Back</button>
 
     <script>
         const emojiMap = [

@@ -34,11 +34,24 @@
         h1 {
             margin-bottom: 20px;
         }
+        #backButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        #backButton:hover {
+            background-color: #6efc75;
+        }
     </style>
 </head>
 <body>
     <h1>LD50 Database</h1>
-    <table>
+    <table id="ld50Table">
         <thead>
             <tr>
                 <th>Substance</th>
@@ -47,6 +60,7 @@
             </tr>
         </thead>
         <tbody>
+            <!-- Expanded Data -->
             <tr>
                 <td>Caffeine</td>
                 <td>192</td>
@@ -67,7 +81,38 @@
                 <td>50</td>
                 <td>Mouse</td>
             </tr>
+            <tr>
+                <td>Paracetamol</td>
+                <td>1944</td>
+                <td>Mouse</td>
+            </tr>
+            <tr>
+                <td>Ethanol</td>
+                <td>7060</td>
+                <td>Rat</td>
+            </tr>
+            <tr>
+                <td>Hydrogen Cyanide</td>
+                <td>2.8</td>
+                <td>Dog</td>
+            </tr>
+            <tr>
+                <td>Carbon Monoxide</td>
+                <td>1800</td>
+                <td>Rat</td>
+            </tr>
+            <tr>
+                <td>Strychnine</td>
+                <td>1.2</td>
+                <td>Rat</td>
+            </tr>
+            <tr>
+                <td>Acetone</td>
+                <td>5800</td>
+                <td>Rat</td>
+            </tr>
         </tbody>
     </table>
+    <button id="backButton" onclick="location.href='../index.html'">🔙 Back</button>
 </body>
 </html>

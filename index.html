@@ -56,6 +56,22 @@
             color: #888;
             margin-top: 20px;
         }
+
+        /* Hidden translator trigger */
+        #secretTranslator {
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: #4caf50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        #secretTranslator:hover {
+            background-color: #6efc75;
+        }
     </style>
 </head>
 <body>
@@ -65,13 +81,30 @@
 
     <main>
         <div class="project-buttons">
-            <button onclick="location.href='projects/translator.html'">🔤 Random Character Translator</button>
             <button onclick="location.href='projects/ld50-database.html'">🧪 LD50 Database</button>
+            <button onclick="location.href='settings.html'">⚙️ Settings</button>
         </div>
     </main>
+
+    <div id="secretTranslator" onclick="location.href='projects/unrelated_file.html'">🔤 Open Translator</div>
 
     <footer>
         <p>&copy; 2024 Project Hub. Built with ❤️</p>
     </footer>
+
+    <script>
+        // Show the secret translator when Shift is held
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Shift") {
+                document.getElementById("secretTranslator").style.display = "block";
+            }
+        });
+
+        document.addEventListener("keyup", (e) => {
+            if (e.key === "Shift") {
+                document.getElementById("secretTranslator").style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html>
