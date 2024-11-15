@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Character Translator</title>
+    <title>Emoji Translator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,58 +11,65 @@
             color: #ffffff;
             text-align: center;
             padding: 20px;
+            margin: 0;
         }
         textarea {
             width: 90%;
             max-width: 500px;
             height: 100px;
-            margin-bottom: 10px;
+            margin: 10px 0;
             font-size: 16px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #4CAF50;
+            border-radius: 8px;
+            border: 1px solid #555;
+            background-color: #1f1f1f;
             color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
+            padding: 10px;
+            outline: none;
         }
         #output {
             margin-top: 20px;
             font-size: 18px;
             font-family: monospace;
             word-wrap: break-word;
+            padding: 10px;
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            display: inline-block;
+            max-width: 90%;
         }
     </style>
 </head>
 <body>
-    <h1>Random Character Translator</h1>
-    <p>Enter text below, and it will be converted into random characters!</p>
-    <textarea id="inputText" placeholder="Type your text here..."></textarea><br>
-    <button onclick="translateToRandom()">Translate</button>
+    <h1>Emoji Translator</h1>
+    <p>Type text below to see it translated into emojis live!</p>
+    <textarea id="inputText" placeholder="Type here..."></textarea>
     <div id="output"></div>
 
     <script>
-        function translateToRandom() {
-            const input = document.getElementById("inputText").value;
-            let randomChars = "";
-            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+        const emojiMap = [
+            "😀", "😂", "🥰", "🤩", "😎", "🤔", "🙃", "😉", "😜", "🥳",
+            "🐶", "🐱", "🐭", "🐸", "🐼", "🐧", "🐦", "🐢", "🐬", "🐋",
+            "🍎", "🍇", "🍉", "🍕", "🍩", "🍔", "🌮", "🍣", "🥗", "🍪"
+        ];
 
-            for (let i = 0; i < input.length; i++) {
-                if (input[i] === " ") {
-                    randomChars += " "; // Keep spaces
+        function translateToPattern(text) {
+            let result = "";
+            for (const char of text) {
+                if (char.trim() === "") {
+                    result += " "; // Preserve spaces
                 } else {
-                    const randomIndex = Math.floor(Math.random() * characters.length);
-                    randomChars += characters[randomIndex];
+                    const randomEmoji = emojiMap[Math.floor(Math.random() * emojiMap.length)];
+                    result += randomEmoji;
                 }
             }
-
-            document.getElementById("output").innerText = randomChars;
+            return result;
         }
+
+        document.getElementById("inputText").addEventListener("input", function () {
+            const input = this.value;
+            const translated = translateToPattern(input);
+            document.getElementById("output").innerText = translated;
+        });
     </script>
 </body>
 </html>
